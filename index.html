@@ -1,0 +1,308 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>María & Javier</title>
+    <meta name="description" content="Llego el momento de unir nuestro amor por siempre">
+    <meta property="og:url" content="">
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="Nos Casamos Maria & Javier">
+    <meta property="og:image" content="https://i.postimg.cc/k4v9MQKL/Disen-o-sin-ti-tulo-93.png">
+    <link rel="stylesheet" href="/style.css">
+    <link rel="preload" href="/images/101.png" as="image">
+    <link rel="preload" href="/images/V7.jpeg" as="image">
+    <link rel="stylesheet" href="/images/102.png" as="image">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Great+Vibes:wght@400;700;900&family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600;1,700&display=swap" rel="stylesheet">
+    <script defer src="https://cdn.lordicon.com/lordicon.js"></script>
+    <script src="https://kit.fontawesome.com/3c219a0781.js" crossorigin="anonymous"></script>
+    <link rel="preload" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" as="style">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+    <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-database.js"></script>
+</head> 
+<body>
+    <div style="position: absolute; width: 0; height: 0; overflow: hidden;">
+        <i class="fas fa-play"></i>
+        <i class="fas fa-pause"></i>
+    </div>    
+<div class="main-content">
+    <!-- Sección de sobre -->
+    <div id="envelope">
+        <div id="envelope-top"></div>
+        <div id="seal" onclick="openEnvelopeAndPlayMusic()">
+            <h2 class="fade-in-element">M | J</h2>
+        </div>
+        <div id="envelope-bottom"></div>
+    </div>
+    <!-- Sección de invitación -->
+    <div id="invitation" class="hidden">
+          <div class="photo-section fade-in-element">
+             <div class="photo-container">
+                 <img src="/images/V7.jpeg" alt="Foto de la pareja" class="photo fade-in-element fade-in-element" loading="lazy" class="bw-photo">
+             </div>
+                <div class="photo-text">
+                 <h1>María Gonzalez 
+                    & Javier Gaitán</h1>
+                 <h2>19 . 07 . 2025</h2>
+               </div>
+          </div> 
+        <!--SECCION PLAY-->
+        <div class="contenedor-play">
+            <h1 class="texto-play fade-in-element fade-in-element">In Case You Don't Know - Brett Young</h1>
+            <div id="playPauseButton" class="icono-contenedor fade-in-element fade-in-element">
+                <i id="iconoPlayPause" class="fas fa-play" aria-hidden="true"></i>
+            </div>
+            <audio id="audioPlayer" src="/Brett Young - In Case You Didn't Know (Official Music Video).mp3" loop></audio>
+            <div class="progress-container">
+                <input id="progress-bar" type="range" value="0" min="0" max="100" step="1">
+                <div class="time-display">
+                    <span id="current-time">0:00</span> / <span id="duration-time">0:00</span>
+                </div>
+            </div>            
+        </div>   
+           <!--SECCION COUNTDOWN-->            
+          <div class="content">
+            <div class="photo-section fade-in-element fade-in-element">
+                <div class="photo-container">
+                    <img src="/images/V8.jpeg" alt="Foto de la pareja" class="photo fade-in-element fade-in-element">
+                </div>
+                     <div class="photo-text fade-in-element fade-in-element">
+                          <h3 class="title">¡Nos casamos!</h3>
+                          <p>Queremos compartir contigo el día en el que daremos el “Sí” más importante de nuestras vidas. Acompáñanos a celebrar nuestra boda.</p>
+                          <div class="countdown fade-in-element fade-in-element">
+                              <div class="unit">
+                                 <span id="days" class="number">00</span>
+                                 <span class="label">Días</span>
+                              </div>
+                               <div class="unit">
+                                 <span id="hours" class="number">00</span>
+                                 <span class="label">Horas</span>
+                              </div>
+                             <div class="unit">
+                                 <span id="minutes" class="number">00</span>
+                                 <span class="label">Minutos</span>
+                             </div>
+                             <div class="unit">
+                                 <span id="seconds" class="number">00</span>
+                                 <span class="label">Segundos</span>
+                             </div>
+                         </div>  
+                         <a href="https://calendar.google.com/calendar/render?action=TEMPLATE&text=Nos+casamos+Mar%C3%ADa+Gonzalez+%26+Javier+Gaitan&dates=20250719T220000Z/20250720T070000Z&details=¡Acompáñanos+a+celebrar+este+d%C3%ADa+tan+especial%21&location=Nuestra+Señora+de+la+Paz&sf=true&output=xml" target="_blank" class="calendar-button" fade-in-element fade-in-element>Agregar al calendario</a>                                                              
+                      </div>
+                 </div>
+            </div>
+            <!--SECCION INVITADOS-->
+            <div class="guest-section fade-in-element fade-in-element">
+                <p id="guest-name" class="fade-in-element"></p>
+            </div>
+            <div class="invitation-info-section fade-in-element fade-in-element">
+                <p> <span id="passes"></span> <i class="fa-solid fa-ticket"></i> </p>
+            </div>
+            <!--SECCION DE BENDICIONES-->
+            <div class="blessing-section fade-in-element">
+                <lord-icon 
+                    src="https://cdn.lordicon.com/lmcbtkfm.json"
+                    trigger="loop" 
+                    stroke="light"
+                    colors="primary:#006d5a ,secondary:#AB580D"
+                    class="lord-icon-style">
+                </lord-icon>
+                <p class="blessing-text">Con la bendición y el amor de Dios, nuestros padres y padrinos</p>
+                
+                <p class="blessing-title">Padres de la Novia</p>
+                <p class="blessing-names">Byron Gonzalez (+) y Mayra de Gonzales</p>
+            
+                <p class="blessing-title">Padres del Novio</p>
+                <p class="blessing-names">Francisco Gaitán y Lisseth de Gaitán</p>
+            
+                <p class="blessing-title">Padrinos</p>
+                <p class="blessing-names">Mauricio Gaitán y Elena de Gaitán</p>
+            </div>
+            <div class="photo-full fade-in-element fade-in-element">
+                <img src="/images/V1.jpeg" alt="Foto de la pareja" loading="lazy">
+            </div>            
+            <!--SECCION ITINERARIO-->
+            <div class="itinerary-section fade-in-element fade-in-element">
+                <div class="itinerary-item">
+                    <lord-icon 
+                     src="https://cdn.lordicon.com/hingizjn.json" 
+                     trigger="loop" 
+                     element="" 
+                     stroke="light" 
+                     colors="primary:#006d5a ,secondary:#AB580D" 
+                     class="lord-icon-style"
+                     ></lord-icon>
+                    <h2>Ceremonia</h2>
+                    <p> Nuestra Señora de la Paz</p>
+                    <div class="itinerary-details">
+                        <div class="time-location">
+                            <span class="date">19 Julio</span>
+                            <span class="separator">|</span>
+                            <span class="time">16:00 hrs</span>
+                        </div>
+                        <p class="location">Final, Avenida Las Americas 23-35, Cdad. de Guatemala</p>
+                        <button type="button"  class="directions-button" onclick="location.href='https://waze.com/ul/h9fxduhbzz'">CÓMO LLEGAR</button>
+                    </div>
+                </div>
+                <div class="itinerary-item">
+                    <lord-icon 
+                     src="https://cdn.lordicon.com/lhzhnixi.json" 
+                     trigger="loop" 
+                     stroke="light" 
+                     colors="primary:#006d5a,secondary:#AB580D" 
+                     class="lord-icon-style"
+                     ></lord-icon>
+                    <h2>Recepción</h2>
+                    <p>Edificio AGEXPORT</p>
+                    <div class="itinerary-details">
+                        <div class="time-location">
+                            <span class="date">19 Julio</span>
+                            <span class="separator">|</span>
+                            <span class="time">18:30 hrs</span>
+                        </div>
+                        <p class="location">15 Avenida 14-72, Cdad. de Guatemala</p>
+                        <button class="directions-button" onclick="location.href='https://waze.com/ul/h9fxdunfcd'">CÓMO LLEGAR</button>
+                    </div>
+                </div>
+            </div>
+            <div class="photo-full fade-in-element fade-in-element">
+                <img src="/images/V9.png" alt="Foto de la pareja" loading="lazy">
+            </div>
+            <!--SECCION REGALOS-->
+            <div class="gifts-section fade-in-element">
+                <h2>Regalos</h2>
+                <lord-icon 
+                    src="https://cdn.lordicon.com/ibydboev.json" 
+                    trigger="loop" 
+                    stroke="light" 
+                    colors="primary:#006d5a ,secondary:#AB580D" 
+                    class="lord-icon-style">
+                </lord-icon>
+                <p>Tu presencia es nuestro mejor regalo. Pero si deseas tener un detalle con nosotros, puedes visitar nuestra mesa de regalos aquí:</p>
+                <button class="gifts-button" onclick="window.open('https://www.cemaco.com/list/bodagaitangonzalez', '_blank')">
+                    BODA CEMACO
+                </button>
+            </div>
+            <!--SECCION DE BUENOS DESEOS-->        
+            <div class="wishes-section fade-in-element">
+                <h2>Buenos deseos</h2>
+                
+                <button type="button" onclick="toggleWishes()">VER BUENOS DESEOS</button>
+                <div id="wishes" class="hidden">
+                    <!-- Aquí se cargarán los buenos deseos desde Firebase -->
+                </div>
+            
+                <button type="button" onclick="toggleWishForm()">ENVIAR BUENOS DESEOS</button>
+                <div id="wish-form" class="hidden">
+                    <h3>Enviar Buenos Deseos</h3>
+                    
+                    <label for="wish-name">Nombre:</label>
+                    <input type="text" id="wish-name" placeholder="Tu nombre">
+                    
+                    <label for="wish-message">Mensaje de buenos deseos:</label>
+                    <textarea id="wish-message" placeholder="Escribe tu mensaje aquí"></textarea>
+                    
+                    <button type="button" onclick="submitWish()">Enviar</button>
+                </div>
+            </div>            
+            <!--SECCION PLAYLIST-->
+            <div class="playlist-section fade-in-element fade-in-element">
+                <h2>Playlist</h2>
+                <lord-icon 
+                 src="https://cdn.lordicon.com/vvlnxtgv.json" 
+                 trigger="loop" 
+                 stroke="light" 
+                 colors="primary:#006d5a,secondary:#AB580D" 
+                 class="lord-icon-style"
+                 ></lord-icon>
+                <p>Nos encantaría que nos sugieras esas canciones que sabes que son geniales y no pueden faltar en nuestra boda.</p>
+                <button onclick="window.location.href='https://open.spotify.com/playlist/1SeD8rZLzax57hSCP5hIPL?si=34c02a0392534aa5&pt=81c96abd6e393b173094a54dab130bc5'">ABRIR PLAYLIST EN SPOTIFY</button>
+            </div>
+            <!--SECCION GALERIA-->
+            <div class="gallery-section fade-in-element fade-in-element">
+                <h2>Galería de fotos</h2>
+                <!-- Checkbox oculto que controla la visibilidad del modal -->
+                <input type="checkbox" id="toggle-modal" class="hidden-checkbox">
+            
+                <!-- Modal de fotos -->
+                <div id="photo-modal" class="modal">
+                    <!-- Label para cerrar el modal -->
+                    <label for="toggle-modal" class="close">&times;</label>
+                    <img class="modal-content" id="main-photo-modal" alt="modal">
+                </div> 
+            
+                <!-- Galería principal -->
+                <div class="gallery-main fade-in-element">
+                    <!-- Al hacer clic en la imagen principal, se abre el modal -->
+                    <label for="toggle-modal">
+                        <img id="main-photo" src="/images/V4.jpeg" alt="Foto principal" onclick="changePhoto(this)" loading="lazy" >
+                    </label>
+                </div>
+            
+                <!-- Miniaturas de la galería -->
+                <div class="gallery-thumbs fade-in-element">
+                    <!-- Cada miniatura también actúa como disparador del modal -->
+                    <label for="toggle-modal">
+                        <img src="images/V4.jpeg" alt="Foto 1" onclick="changePhoto(this)" loading="lazy">
+                    </label>
+                    <label for="toggle-modal">
+                        <img src="/images/V3.jpeg" alt="Foto 2" onclick="changePhoto(this)" loading="lazy">
+                    </label>
+                    <label for="toggle-modal">
+                        <img src="/images/V5.jpeg" alt="Foto 3" onclick="changePhoto(this)" loading="lazy">
+                    </label>
+                    <label for="toggle-modal">
+                        <img src="/images/V6.jpeg" alt="Foto 4" onclick="changePhoto(this)" loading="lazy">
+                    </label>
+                </div>
+            </div>
+            <!--SECCION ALBUM-->
+            <div class="album-section fade-in-element">
+                <h2>¡Hagamos los recuerdos inolvidables!</h2>
+                <h1 class="hashtag">#noscasamosmariayjavier</h1>
+                <div class="qr-container">
+                    <div id="qrCode"></div>
+                    <img src="/images/QR.png" alt="Escane el QR" width="400">
+                    <p>Escanea el código QR o usa el botón para subir tus fotos</p>
+                    <a class="upload-btn" href="https://drive.google.com/drive/folders/1Ri1S9Zkwu2hXRbIaxcvIDVhoVTQVxarI?usp=drive_link" target="_blank">SUBIR FOTOS</a>
+                </div>
+            </div>
+            <div class="rsvp-section fade-in-element fade-in-element">
+                <h2>Confirmación</h2>
+                <lord-icon 
+                 src="https://cdn.lordicon.com/wzwygmng.json" 
+                 trigger="loop" 
+                 stroke="light"  
+                 colors="primary:#006d5a,secondary:#AB580D" 
+                 class="lord-icon-style"
+                 ></lord-icon>
+                <p>Para nosotros es muy importante que confirmes tu asistencia antes del 01 de Julio, o bien indicarnos si no podrás acompañarnos.</p>
+                <button type="button" onclick="window.open('https://wa.me/50242446892', '_blank')">CONFIRMA TU ASISTENCIA</button>                
+            </div>
+            <div class="photo-full fade-in-element fade-in-element">
+                <img src="/images/V2.jpeg" alt="Foto de la pareja" loading="lazy">
+            </div>
+            <div class="banner-section fade-in-element fade-in-element1">
+                <p>Nuestros caminos se cruzaron mil veces… hasta que Dios nos unió en el momento perfecto. ♥︎</p>
+            </div>
+            <footer class="fade-in-element fade-in-element">
+                <div class="social-icons">
+                    <a href="https://wa.me/50236011737" aria-label="Whatsapp"><i class="fab fa-whatsapp fade-in-element"></i></a>
+                    <a href="https://www.facebook.com/thetwodesign?mibextid=ZbWKwl" aria-label="Facebook"><i class="fab fa-facebook fade-in-element"></i></a>
+                    <a href="https://www.instagram.com/thetwodesign?igsh=M2k5eWF4dHl3czNv" aria-label="Instagram"><i class="fab fa-instagram fade-in-element"></i></a>
+                </div>
+                <div class="logo fade-in-element">
+                    <img src="/images/2.png" alt="Logo de la empresa">
+                </div>
+            </footer>
+        </div>
+    </div>
+</div>
+        <script src="/script.js" defer></script>
+        <script src="/loads.js" defer></script>
+        <script src="/firebase.js" defer></script>
+</body>
+</html>
