@@ -106,6 +106,17 @@ h2, h3, h4, h5, h6 {
     object-fit: cover; /* Asegura que la imagen cubra completamente el contenedor */
     filter: grayscale(100%);
 }
+.photo-container-b {
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+}
+.photo-container-b img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* Asegura que la imagen cubra completamente el contenedor */
+    filter: grayscale(100%);
+}
 /* Contenedor del texto, posicionado sobre la imagen */
 .photo-text {
     position: absolute; /* Posiciona el texto sobre la imagen */
@@ -131,20 +142,22 @@ h2, h3, h4, h5, h6 {
     -webkit-background-clip: text;
     color: transparent;
 }
-.photo-text h3{
-    text-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-    background: linear-gradient(to right,  #cccccc,#ffffff,#f0f0f0,#ffffff,#cccccc);
-    -webkit-background-clip: text;
-    color: transparent;
-}
+.photo-text h3 {
+    color: white;
+    text-shadow: 4px 4px 10px rgba(0, 0, 0, 1);
+  }
+  
+  .photo-text p {
+    color: white;
+    text-shadow: 4px 4px 10px rgba(0, 0, 0, 1);
+    font-size: 1.2rem; /* ajusta el tamaño para que se vea mejor */
+  }
 .photo-text p {
     font-size: 100px;
     margin: -100px 0 0 0;
-    font-style: italic;
-    color: white;
-    text-shadow: 0 0 10px rgba(32, 32, 32, 0.857);
-    
+    font-style: italic;    
 }
+
 /* Estilo para la cuenta regresiva */
 .title h1{
     font-size: 150px;
