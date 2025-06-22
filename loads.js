@@ -85,11 +85,11 @@ document.addEventListener("DOMContentLoaded", function () {
 
         // Determinar frase de invitación según género y cantidad
         if (guest.passes === 1) {
-            genderText = guest.gender === "female" ? "está invitada" : "está invitado";
+            genderText = guest.gender === "femenino" ? "está invitada" : "está invitado";
         } else {
-            if (guest.gender === "female" && guest.adults + guest.kids === guest.passes) {
+            if (guest.gender === "femenino" && guest.adults + guest.kids === guest.passes) {
                 genderText = "están invitadas";
-            } else if (guest.gender === "male" && guest.adults + guest.kids === guest.passes) {
+            } else if (guest.gender === "masculino" && guest.adults + guest.kids === guest.passes) {
                 genderText = "están invitados";
             } else {
                 genderText = "están invitados";
