@@ -59,6 +59,9 @@ const guests = [
     { id: "58", name: "Carlos Rancho", passes: 1, adults: 1, gender: "masculino" },
     { id: "59", name: "Jose Nolasco", passes: 1, adults: 1, gender: "masculino" },
     { id: "60", name: "Hesler", passes: 2, adults: 2, gender: "masculino" },
+    { id: "61", name: "Luis Ortiz", passes: 2, adults: 2, gender: "neutral"}, 
+    { id: "62", name: "Victor Robles", passes: 1, adultos: 1, gender: "masculino"}, 
+    { id: "63", name: "Luis Gaitán", passes: 1, adultos: 1, gender: "masculino"}
 ];
 
 
